@@ -5,14 +5,10 @@ function myName() {
         name2 += name[i];
 
         if (name[i] == " ") {
-            return name2;
-
+            return "My name is " + name2;
         }
-        
-
 
     }
-    return "My name is " + name2;
 
 }
 const result = myName();
