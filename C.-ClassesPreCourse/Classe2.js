@@ -72,6 +72,7 @@ const contactsExercise = () => {
     if (role === "user") {
         alert("Here you have the available contacts");
         showContacts();
+        
     }  else if (role === "admin"){
         adminAction();
     };
