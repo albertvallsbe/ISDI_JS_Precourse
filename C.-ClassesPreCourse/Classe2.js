@@ -31,32 +31,32 @@ const askForRole = () => {
 const askForAction = () => {
     const action = prompt("What action do ypu want (create/delete)");
 
-    if(action === null){
+    if (action === null) {
         askForAction();
 
-    }else if (action.toLowerCase() !== "create" && action.toLowerCase() !== "delete"){
+    } else if (action.toLowerCase() !== "create" && action.toLowerCase() !== "delete") {
         alert("Please insert a valid action");
         askForAction();
-    }else {
+    } else {
         return action.toLowerCase();
     }
 };
 
-const adminAction =()=>{
+const adminAction = () => {
     const action = askForAdminAction();
 
-    if (action === "create"){
-        const newContact={}
+    if (action === "create") {
+        const newContact = {}
 
         newContact.name = prompt("Name: ");
         newContact.age = +prompt("Age: ");
         newContact.gender = prompt("Gender: ");
-        newContact.id = contacts.length +1;
-        
+        newContact.id = contacts.length + 1;
+
         contacts.push(newContact);
-        
+
         showContacts();
-    } else if(action === "delete"){
+    } else if (action === "delete") {
         showContacts();
         const idToDelete = +prompt("Insert Id to delete");
 
@@ -72,8 +72,8 @@ const contactsExercise = () => {
     if (role === "user") {
         alert("Here you have the available contacts");
         showContacts();
-        
-    }  else if (role === "admin"){
+
+    } else if (role === "admin") {
         adminAction();
     };
 };
