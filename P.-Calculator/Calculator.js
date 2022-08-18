@@ -1,75 +1,71 @@
 let num1;
 let num2;
+const results =[];
 
 const askForNumber = () => {
 
-    //let 
-    num1 = prompt("Tell a number: ");
+    num1 = prompt(" Tell a number: ");
 
     if (num1 === null || num1 === "") {
-        alert("Campo vacío, Introduce un numero! ");
+        alert(" Empty, Please tell a number! ");
         askForNumber();
     } else if (isNaN(num1)) {
-        alert("No es un numero! Vuelve a provar: ");
+        alert(" It's not a number! Try again: ");
         askForNumber();
     } else {
-        //alert("Es un numero!");
         num1 = parseInt(num1);
-        askForMoreNumbers();
-        
+        askForMoreNumbers(num1);
+
     }
 
 };
 
-const askForMoreNumbers = () => {
-    let action = prompt("Tell a number? (y/n): ");
+const askForMoreNumbers = (num1) => {
+    let action = prompt(" Tell a number? (y/n): ");
 
     if (action === null || action === "") {
-        alert("Campo vacío, Introduce un numero! ");
+        alert(" Empty, Please tell a number! ");
         askForMoreNumbers();
     } else if (action.toLowerCase() !== "y" && action.toLowerCase() !== "n") {
         alert("Please insert a valid action");
         askForMoreNumbers();
-    } else if (action.toLowerCase() === "y"){
+    } else if (action.toLowerCase() === "y") {
         //alert("Es un numero!");
         askForSecondNumber();
     } else {
-        calculatorSqrt();
-        
+        calculatorSqrt(num1);
+
     }
 }
 const askForSecondNumber = () => {
 
-    //let 
-    num2 = prompt("Tell a second number: ");
-
+    num2 = prompt(" Tell a second number: ");
 
     if (num2 === null || num2 === "") {
-        alert("Campo vacío, Introduce un numero! ");
+        alert(" Empty, Please tell a number! ");
         askForSecondNumber();
     } else if (isNaN(num2)) {
-        alert("No es un numero! Vuelve a provar: ");
+        alert(" It's not a number! Try again: ");
         askForSecondNumber();
     } else {
-        //alert("Es un numero!");
-        
         calculatorFull();
-        
     }
 
-
 };
-const calculatorSqrt = () => {
+const calculatorSqrt = (num1) => {
 
-    console.log("Square root Results");
-    console.log(num2);
+    let squareRoot = Math.sqrt(mum1);
+    results.push(`Square root result is: ${squareRoot.toFixed(3)}`)
+
+    console.log(" Square root Results: ");
+    console.log(squareRoot.toFixed(3));
+    return results;
 
 };
 const calculatorFull = () => {
 
     console.log("Full Results");
     console.log(`num1: ${num1} num2: ${num2}`);
-
 
 };
 
