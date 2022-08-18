@@ -14,13 +14,13 @@ const askForNumber = () => {
         askForNumber();
     } else {
         num1 = parseInt(num1);
-        askForMoreNumbers(num1);
-
+        askForMoreNumbers();
+        return num1;
     }
 
 };
 
-const askForMoreNumbers = (num1) => {
+const askForMoreNumbers = () => {
     let action = prompt(" Tell a number? (y/n): ");
 
     if (action === null || action === "") {
@@ -33,7 +33,7 @@ const askForMoreNumbers = (num1) => {
         //alert("Es un numero!");
         askForSecondNumber();
     } else {
-        calculatorSqrt(num1);
+        calculatorSqrt();
 
     }
 }
@@ -52,21 +52,32 @@ const askForSecondNumber = () => {
     }
 
 };
-const calculatorSqrt = (num1) => {
+const calculatorSqrt = () => {
 
-    let squareRoot = Math.sqrt(mum1);
+    let squareRoot = Math.sqrt(num1);
     results.push(`Square root result is: ${squareRoot.toFixed(3)}`)
 
-    console.log(" Square root Results: ");
-    console.log(squareRoot.toFixed(3));
+    printResults();
     return results;
 
 };
 const calculatorFull = () => {
 
-    console.log("Full Results");
-    console.log(`num1: ${num1} num2: ${num2}`);
+    let suma = num1+num2;
+    let resta = num1-num2;
+    let multi = num1*num2;
+    let divi = num1/num2;
+    results.push(`Suma result is: ${suma}`);
+    results.push(`Resta result is: ${resta}`);
+    results.push(`Multi result is: ${multi}`);
+    results.push(`Divi result is: ${divi}`); 
 
+    printResults();
+    return results;
+
+};
+const printResults =()=>{
+    results.forEach((resultat) => console.log(`Resultat: ${resultat}`));   
 };
 
 
