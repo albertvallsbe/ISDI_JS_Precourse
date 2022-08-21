@@ -20,7 +20,7 @@ const showContacts = () => {
 const askForRole = () => {
     const role = prompt("What's your role (user/admin?)");
 
-    if (role === nule) {
+    if (role === null) {
         askForRole();
     } else if (role.toLowerCase() !== "user" && role.toLowerCase() !== "admin") {
         askForRole();
@@ -28,8 +28,8 @@ const askForRole = () => {
         return role.toLowerCase();
     }
 };
-const askForAction = () => {
-    const action = prompt("What action do ypu want (create/delete)");
+const askForAdminAction = () => {
+    const action = prompt("What action do you want (create/delete)");
 
     if (action === null) {
         askForAction();
