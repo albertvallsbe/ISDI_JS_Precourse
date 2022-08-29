@@ -8,10 +8,16 @@ class Car {
         this.color = color;
         this.brand = brand;
         this.wheels = wheels;
+        this.turnOn();
     }
 
     turnOn(){
         alert("Brrrrrrrrrrrrrrmmm!!!!");
+    }
+
+    destroyOff(){
+        alert("%/()()()()(!!!!%&");
+        this.motor = false;
     }
 }
 
