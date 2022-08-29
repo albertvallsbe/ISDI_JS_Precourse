@@ -39,8 +39,6 @@ class Game {
         this.rounds++;
     }
 
-
-
 }
 
 
