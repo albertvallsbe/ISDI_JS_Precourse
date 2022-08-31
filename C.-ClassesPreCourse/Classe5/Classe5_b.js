@@ -1,12 +1,20 @@
-
 class Game {
-    word = "codigo";
+    word;
     alphabet = "abcdefghijklmnopqrstuvwxyz";
     wordToGuess = [];
     usedNumbers = [];
     rounds = 0;
     won = false;
     isPlaying = true;
+
+    constructor(word) {
+        this.word = word;
+        alert(" Hello! Welcome to THE GAME! ");
+        this.generateWordToGuess();
+        this.playGame();
+    }
+
+
 
     generateWordToGuess() {
         for (let i = 0; i < this.word.length; i++) {
@@ -39,42 +47,31 @@ class Game {
         this.rounds++;
     }
 
-}
-
-
-
-const checkIfWin = () => {
-    for (let i = 0; i < wordToGuess.length; i++) {
-        if (wordToGuess[i].isGuessed === false) {
-            return;
+    checkIfWin() {
+        for (let i = 0; i < this.wordToGuess.length; i++) {
+            if (this.wordToGuess[i].isGuessed === false) {
+                return;
+            }
         }
+
+        this.won = true;
+        return;
     }
 
-    won = true;
-    return;
-}
-
-const playGame = () => {
-    do {
-        if (confirm("Do you want a letter? 8-) ")) {
-            newTurn();
-            checkIfWin();
-            console.table(wordToGuess);
+    playGame() {
+        do {
+            if (confirm("Do you want a letter? 8-) ")) {
+                this.newTurn();
+                this.checkIfWin();
+                console.table(this.wordToGuess);
+            } else {
+                this.isPlaying = false;
+            }
+        } while (!this.won && this.isPlaying);
+        if (this.won) {
+            alert(` Congratulations! You Won in ${this.rounds} rounds`);
         } else {
-            isPlaying = false;
+            alert(" Goodbye! 8-(");
         }
-    } while (!won && isPlaying);
-    if (won) {
-        alert(` Congratulations! You Won in ${rounds} rounds`);
-    } else {
-        alert(" Goodbye! 8-(");
     }
-}
-
-const letsPlay = () => {
-    alert(" Hello! Welcome to THE GAME! ");
-    generateWordToGuess();
-    playGame();
 };
-
-letsPlay();
