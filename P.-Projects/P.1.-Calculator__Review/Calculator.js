@@ -70,10 +70,10 @@ const calculatorFull = () => {
     let resta = num1 - num2;
     let multi = num1 * num2;
     let divi = num1 / num2;
-    results.push(`Suma result is: ${suma}`);
-    results.push(`Resta result is: ${resta}`);
-    results.push(`Multi result is: ${multi}`);
-    results.push(`Divi result is: ${divi}`);
+    results.push(`The Add of ${num1} and ${num2} is: ${suma.toFixed(3)}`);
+    results.push(`The Remains of ${num1} and ${num2} is: ${resta.toFixed(3)}`);
+    results.push(`The Multiplication of ${num1} and ${num2} is: ${multi.toFixed(3)}`);
+    results.push(`The Division of ${num1} and ${num2} is: ${divi.toFixed(3)}`);
 
     printResults();
     return results;
