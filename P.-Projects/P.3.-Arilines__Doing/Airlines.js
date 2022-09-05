@@ -34,8 +34,9 @@ const createConnectingFlights = () => {
     for (let i = 0; i < flights.length; i++) {
         
         if (flights[i].scale === true) {
-            connectingFlights[i] = flights[i];
+            //connectingFlights[i] = flights[i];
             //console.log(`Fly: ${flights.id} Origin: ${flights.from} Destination: ${flights.to} Price: ${flights.cost} Scale: ${flights.scale}`);
+            connectingFlights.push(flights[i]);
         }
     } return connectingFlights;
 
