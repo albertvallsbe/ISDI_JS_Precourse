@@ -1,8 +1,12 @@
 body {
-  background-color: saddlebrown;
-  color: azure;
+    background-color: saddlebrown;
+    color: azure;
 }
 
 .highlighted {
     text-decoration: underline;
+}
+
+.form-group {
+    margin: 1rem 0rem;
 }
