@@ -14,6 +14,7 @@ const flights = [
     { id: 08, to: "Sydney", from: "Barcelona", cost: 150, scale: true },
     { id: 09, to: "Tel-Aviv", from: "Madrid", cost: 150, scale: false },
 ];
+// let connectingFlights = flights.slice();
 
 const flyInformation = () => {
 
@@ -24,6 +25,10 @@ const flyInformation = () => {
     showAverageCost();
     createConnectingFlights();
     showConnectingFlights();
+
+
+
+    flightsList();
     //showLastFlights();
 
 }
@@ -32,21 +37,24 @@ const flyInformation = () => {
 
 const createConnectingFlights = () => {
     for (let i = 0; i < flights.length; i++) {
-        
-        if (flights[i].scale === true) {
-            //connectingFlights[i] = flights[i];
-            //console.log(`Fly: ${flights.id} Origin: ${flights.from} Destination: ${flights.to} Price: ${flights.cost} Scale: ${flights.scale}`);
+
+        if (flights[i].scale === "Fly have scale") {
             connectingFlights.push(flights[i]);
         }
-    } return connectingFlights;
+    } 
+    
+    return connectingFlights;
 
 };
 
 const showConnectingFlights = () => {
     console.log("The list of today connecting flights ");
+
     connectingFlights.forEach((flight) => {
         console.log(`Fly: ${flight.id} Origin: ${flight.from} Destination: ${flight.to} Price: ${flight.cost} Scale: ${flight.scale}`);
     });
+
+    console.log("---------------------");
 }
 
 const calculateAverageCost = () => {
@@ -64,18 +72,18 @@ const showAverageCost = () => {
     console.log(`The average of price of today flights is: ${totalPrice}`);
 
 }
-
+//Por que modifica el array original?? 
 const createflightsInfo = () => {
-
-    for (let i = 0; i < flights.length; i++) {
-        flightsInfo[i] = flights[i];
-        if (flights[i].scale === true) {
-
+    flightsInfo = flights;
+    for (let i = 0; i < flightsInfo.length; i++) {
+        if (flightsInfo[i].scale === true) {
             flightsInfo[i].scale = "Fly have scale";
         } else {
             flightsInfo[i].scale = "Fly doesn't have scale";
         }
-    } return flightsInfo;
+    } 
+    
+    return flightsInfo;
 
 }
 
@@ -84,6 +92,8 @@ const showFlights = () => {
     flightsInfo.forEach((flight) => {
         console.log(`Fly: ${flight.id} Origin: ${flight.from} Destination: ${flight.to} Price: ${flight.cost} Scale: ${flight.scale}`)
     });
+
+    console.log("---------------------");
 }
 
 
@@ -106,6 +116,14 @@ const askForName = () => {
 
 const printWelcome = () => {
     console.log(`Welcome to our Airline, ${userName}`);
+}
+
+const flightsList = () => {
+    console.log("-----Show Original DDBB-----");
+    flights.forEach((flight) => {
+        console.log(`Fly: ${flight.id} Origin: ${flight.from} Destination: ${flight.to} Price: ${flight.cost} Scale: ${flight.scale}`)
+    });
+    console.log("---------------------");
 }
 
 flyInformation();
