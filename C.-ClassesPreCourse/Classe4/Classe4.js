@@ -58,12 +58,46 @@ const getWord = (name) => {
     if (!newWord) {
         return getWord();
     }
-    return newWord;
+    return newWord.toLowerCase();
 };
 
-const game = (name) => {
+const checkWord = (word, validWords, validLetters, userWords) => {
+
+    if (userWords.includes(word)) {
+        alert("la palabra está repetida ")
+        return;
+    }
+    if (word.length < 3) {
+        alert("la palabra tiene menos de 3 letras ")
+        return;
+    }
+    if (!word.includes(requiredLetter)) {
+        alert("La palabra no tiene la palabra requerida");
+        return;
+    };
+    if (!validWords.includes(word)) {
+        alert("La palabra no es valida");
+        return;
+    }
+    userWords.push(word);
+    alert("La palabra es correcta! ");
+    return;
+
+};
+
+const newTurn = () => confirm("Try again? ");
+
+
+const game = () => {
     const playerName = getPlayerName();
-    const word = getWord(playerName);
+
+    do {
+        const newWord = getWord(playerName);
+        checkWord(newWord, validWords, validLetters, userWords);
+    }
+    while (newTurn());
+
+    alert("Felicidades esta es tu lista de aciertos " + userWords.join(', '))
 }
 
 game();
