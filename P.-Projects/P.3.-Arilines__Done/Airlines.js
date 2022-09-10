@@ -1,6 +1,6 @@
 let name;
 let totalPrice = 0;
-let flightsInfo = [];
+let lastFlightsList = [];
 let connectingFlights = [];
 const flights = [
     { id: 00, to: "New York", from: "Barcelona", cost: 700, scale: false },
@@ -19,42 +19,58 @@ const flights = [
 const flyInformation = () => {
 
     askForName();
-    createflightsInfo();
+
+    flightHasLayover();
     showFlights();
+
     calculateAverageCost();
     showAverageCost();
+
     createConnectingFlights();
     showConnectingFlights();
 
-
-
-    flightsList();
-    //showLastFlights();
-
+    lastFlights();
+    showLastFlightsList();
 }
 
-//const showLastFlights = () => {}
+const lastFlights = () => {
+    let flightsNumber = 4;
+    for (let i = (flights.length - flightsNumber); i < flights.length; i++) {
+
+        lastFlightsList.push(flights[i]);
+    }
+
+    return lastFlightsList;
+}
+
+const showLastFlightsList = () => {
+    console.log("---------Show Today Last Flights----------");
+    
+    lastFlightsList.forEach((flight) => {
+        console.log(`Fly: ${flight.id} Origin: ${flight.from} Destination: ${flight.to} Price: ${flight.cost} Scale: ${flight.scale}`)
+    });
+    console.log("------------------------------------------");
+}
 
 const createConnectingFlights = () => {
     for (let i = 0; i < flights.length; i++) {
 
-        if (flights[i].scale === "Fly have scale") {
+        if (flights[i].scale === true) {
             connectingFlights.push(flights[i]);
         }
-    } 
-    
-    return connectingFlights;
+    }
 
+    return connectingFlights;
 };
 
 const showConnectingFlights = () => {
-    console.log("The list of today connecting flights ");
+    console.log("-----The list of connecting flights-------");
 
     connectingFlights.forEach((flight) => {
         console.log(`Fly: ${flight.id} Origin: ${flight.from} Destination: ${flight.to} Price: ${flight.cost} Scale: ${flight.scale}`);
     });
 
-    console.log("---------------------");
+    console.log("------------------------------------------");
 }
 
 const calculateAverageCost = () => {
@@ -69,33 +85,23 @@ const calculateAverageCost = () => {
 }
 
 const showAverageCost = () => {
-    console.log(`The average of price of today flights is: ${totalPrice}`);
-
+    console.log(`--------Today average price is: ${totalPrice}-------`);
+    console.log("------------------------------------------");
 }
-//Por que modifica el array original?? 
-const createflightsInfo = () => {
-    flightsInfo = flights;
-    for (let i = 0; i < flightsInfo.length; i++) {
-        if (flightsInfo[i].scale === true) {
-            flightsInfo[i].scale = "Fly have scale";
-        } else {
-            flightsInfo[i].scale = "Fly doesn't have scale";
-        }
-    } 
-    
-    return flightsInfo;
 
+const flightHasLayover = (fly) => {
+    let flyLayover = (fly) ? "Fly have scale" : "Fly doesn't have scale"
+    return flyLayover;
 }
 
 const showFlights = () => {
-    console.log("The list of today flights ");
-    flightsInfo.forEach((flight) => {
-        console.log(`Fly: ${flight.id} Origin: ${flight.from} Destination: ${flight.to} Price: ${flight.cost} Scale: ${flight.scale}`)
+    console.log("---------The list of today flights--------");
+    console.log("------------------------------------------");
+    flights.forEach((flight) => {
+        console.log(`Fly: ${flight.id} Origin: ${flight.from} Destination: ${flight.to} Price: ${flight.cost} Scale: ${flightHasLayover(flight.scale)}`)
     });
-
-    console.log("---------------------");
+    console.log("------------------------------------------");
 }
-
 
 const askForName = () => {
 
@@ -111,19 +117,10 @@ const askForName = () => {
         printWelcome();
         return userName;
     }
-
 }
 
 const printWelcome = () => {
-    console.log(`Welcome to our Airline, ${userName}`);
-}
-
-const flightsList = () => {
-    console.log("-----Show Original DDBB-----");
-    flights.forEach((flight) => {
-        console.log(`Fly: ${flight.id} Origin: ${flight.from} Destination: ${flight.to} Price: ${flight.cost} Scale: ${flight.scale}`)
-    });
-    console.log("---------------------");
+    console.log(`Welcome to our Airline: Mr/Mrs  ${userName}`);
 }
 
 flyInformation();

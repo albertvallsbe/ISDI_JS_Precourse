@@ -7,7 +7,9 @@ class Game {
     won = false;
     isPlaying = true;
 
-    constructor(word) {
+    constructor() {
+        //Per demanar la paraula al jugador utilitzem el prompt i afegim parametre al constructor... 'constructor(word)'
+        //this.word = prompt('Danos una palabra!');
         this.word = word;
         alert(" Hello! Welcome to THE GAME! ");
         this.generateWordToGuess();
@@ -75,3 +77,4 @@ class Game {
         }
     }
 };
+ 
