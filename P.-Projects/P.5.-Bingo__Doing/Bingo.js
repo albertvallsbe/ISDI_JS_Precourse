@@ -30,8 +30,11 @@ class Bingo {
         this.askForName();
         this.printWelcome();
         this.generateGuessCard();
+
         //alert(`This are your numbers to the game: ${this.card}`);
+        
         this.playGame();
+
 
     }
 
