@@ -1,5 +1,6 @@
 //new Bingo();
 
+//Extra, jugar contra la maquina...
 //Revisar: 
 //Al crear la guestCard de forma random necesito la variable card=[] para evitar los duplicados en la guessCard=[]
 
