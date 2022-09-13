@@ -10,7 +10,8 @@
 
 class Bingo {
     rankingPlayers = [];
-    card = [2, 3, 4, 5, 7, 11, 13, 15, 16, 18, 21, 24, 25, 27, 29];
+    card = [];
+    maxCarNumbers = 15;
     range = "1-30";
     minNumber = 1;
     maxNumber = 30;
@@ -49,6 +50,18 @@ class Bingo {
 
         this.usedNumbers.push(randomNumber);
         return randomNumber;
+    }
+
+    getRandomCardNumber() {
+        const randomCardNumber = Math.floor(Math.random() * this.maxNumber);
+
+
+        if (this.card.includes(randomCardNumber)) {
+            return this.getRandomCardNumber();
+        };
+
+        this.card.push(randomCardNumber);
+        return randomCardNumber;
     }
 
     getPointsForNumber() {
@@ -141,7 +154,7 @@ class Bingo {
     }
 
     generateGuessCard() {
-        for (let i = 0; i < this.card.length; i++) {
+        for (let i = 0; i < this.maxCarNumbers; i++) {
             this.guessCard.push({ number: this.card[i], isGuessed: false });
         }
     }
