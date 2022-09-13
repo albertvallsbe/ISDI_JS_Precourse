@@ -9,6 +9,7 @@
 //Rango de Numeros de 1-30 para facilitar las pruebas
 
 class Bingo {
+    rankingPlayers = [];
     card = [2, 3, 4, 5, 7, 11, 13, 15, 16, 18, 21, 24, 25, 27, 29];
     range = "1-30";
     minNumber = 1;
@@ -18,6 +19,10 @@ class Bingo {
     playerName;
     rounds = 0;
     won = false;
+    guessPoints = 0;
+    pointsForNumber = 2;
+    pointsForLine = 10;
+    pointsForWin = 25;
     wonLineOne = false;
     wonLineTwo = false;
     wonLineThree = false;
@@ -25,17 +30,13 @@ class Bingo {
     alertLineTwo = true;
     alertLineThree = true;
     isPlaying = true;
+    extraGame = true;
 
     constructor() {
         this.askForName();
         this.printWelcome();
         this.generateGuessCard();
-
-        //alert(`This are your numbers to the game: ${this.card}`);
-        
         this.playGame();
-
-
     }
 
     getRandomNumber() {
@@ -50,6 +51,23 @@ class Bingo {
         return randomNumber;
     }
 
+    getPointsForNumber() {
+        this.guessPoints += this.pointsForNumber
+
+        return this.guessPoints;
+    }
+
+    getPointsForLine() {
+        this.guessPoints += this.pointsForLine
+
+        return this.guessPoints;
+    }
+
+    getPointsForWin() {
+        this.guessPoints += this.pointsForWin
+
+        return this.guessPoints;
+    }
 
     newTurn() {
         const randomNumber = this.getRandomNumber();
@@ -58,9 +76,9 @@ class Bingo {
         this.guessCard.forEach(newNum => {
             if (newNum.number === randomNumber) {
                 newNum.isGuessed = true;
+                this.getPointsForNumber();
             };
         });
-
         this.rounds++;
     }
 
@@ -82,6 +100,7 @@ class Bingo {
             }
         }
         this.wonLineOne = true;
+        this.getPointsForLine();
         if (this.wonLineOne && this.alertLineOne) {
             alert(` Congratulations! You Won Line One in ${this.rounds} rounds`);
             this.alertLineOne = false;
@@ -89,6 +108,7 @@ class Bingo {
 
         return this.wonLineOne;
     }
+
     checkIfLineTwoWin() {
         for (let i = 5; i <= 9; i++) {
             if (this.guessCard[i].isGuessed === false) {
@@ -97,27 +117,28 @@ class Bingo {
         }
 
         this.wonLineTwo = true;
+        this.getPointsForLine();
         if (this.wonLineTwo && this.alertLineTwo) {
             alert(` Congratulations! You Won Line Two in ${this.rounds} rounds`);
             this.alertLineTwo = false;
         }
         return this.wonLineTwo;
     }
+
     checkIfLineThreeWin() {
         for (let i = 10; i <= 14; i++) {
             if (this.guessCard[i].isGuessed === false) {
                 return;
             }
         }
-
         this.wonLineThree = true;
+        this.getPointsForLine();
         if (this.wonLineThree && this.alertLineThree) {
             alert(` Congratulations! You Won Line Three in ${this.rounds} rounds`);
             this.alertLineThree = false;
         }
         return this.wonLineThree;
     }
-
 
     generateGuessCard() {
         for (let i = 0; i < this.card.length; i++) {
@@ -136,34 +157,26 @@ class Bingo {
             console.log(`Card:  ${num.number} Mached:  ${this.numberIsGuessed(num.isGuessed)}`);
             counter++;
         });
-        //numberIsGuessed(flight.scale)
-        console.log(`-----------------------------Rounds: ${this.rounds}---`);
-        //this.showUsedNumbers();
+        console.log(`----------Points: ${this.guessPoints}--Rounds: ${this.rounds}---`);
+
     }
-    // showGuestCardBis() {
-    //     console.log("---------------------//---------------------");
-    //     this.card.forEach((num) => {
-    //         console.log(`Card:  ${num}`);
-    //     });
-
-    //     console.log("--------------------//----------------------");
-
-    // }
 
     numberIsGuessed(isGuessed) {
         let guessed = (isGuessed) ? "X" : " "
         return guessed;
     }
+
     showUsedNumbers() {
         console.log("----------------/Used Numbers/-----------------");
         console.log(this.usedNumbers.join(', '))
-        // this.usedNumbers.forEach((num) => {
-        //     console.log(`Card:  ${num}`);            
-        // });
+            // this.usedNumbers.forEach((num) => {
+            //     console.log(`Card:  ${num}`);            
+            // });
 
         console.log("--------------------//----------------------");
 
     }
+
     askForName() {
 
         this.playerName = prompt(" Tell your name: ");
@@ -185,6 +198,48 @@ class Bingo {
         alert(`Welcome to our Bingo: Mr/Mrs  ${this.playerName}`);
     }
 
+    getResetParameters() {
+        this.guessCard = [];
+        this.usedNumbers = [];
+        this.rounds = 0;
+        this.won = false;
+        this.guessPoints = 0;
+        this.wonLineOne = false;
+        this.wonLineTwo = false;
+        this.wonLineThree = false;
+        this.alertLineOne = true;
+        this.alertLineTwo = true;
+        this.alertLineThree = true;
+        this.isPlaying = true;
+        this.extraGame = true;
+    }
+
+    generateRaning() {
+        this.rankingPlayers.push({ name: this.playerName, points: this.guessPoints });
+
+    }
+
+    showRanking() {
+        console.clear();
+        console.log("------------------++------------------------");
+        this.rankingPlayers.forEach((player) => {
+            console.log(`Player:  ${player.name} Points:  ${player.points}`);
+        });
+    }
+
+    newGame() {
+        if (confirm("Do you want new game? ")) {
+            this.getResetParameters();
+            this.generateGuessCard();
+            this.askForName();
+            this.printWelcome();
+            this.playGame();
+        } else {
+            this.extraGame = false;
+            this.isPlaying = false;
+        }
+    }
+
     playGame() {
         this.showGuestCard();
         this.newTurn();
@@ -202,19 +257,34 @@ class Bingo {
                 this.checkIfLineTwoWin();
                 this.checkIfLineThreeWin();
                 this.checkIfWin();
-
-
             } else {
                 this.isPlaying = false;
             }
         } while (!this.won && this.isPlaying);
 
         if (this.won) {
-            alert(` Congratulations! You Won in ${this.rounds} rounds`);
-            console.clear();
-            console.log(` Congratulations! Mr/Mrs  ${this.playerName} You Won in ${this.rounds} rounds`);
-            this.showGuestCard();
-        } else {
+            do {
+                this.getPointsForWin();
+                alert(` Congratulations! You Won in ${this.rounds} rounds. You get: ${this.guessPoints}`);
+                console.clear();
+                console.log(` Congratulations! Mr/Mrs  ${this.playerName} You Won in ${this.rounds} rounds. You get: ${this.guessPoints}`);
+
+                this.showGuestCard();
+                this.generateRaning();
+                this.newGame();
+
+            } while (!this.extraGame && this.isPlaying)
+
+        }
+        if (confirm("Do you want view Ranking? ")) {
+            this.showRanking();
+
+        }
+        if (confirm("Do you want new game? ")) {
+            this.newGame();
+
+        }
+        if (!this.isPlaying) {
             alert(" Goodbye! ");
         }
     }
