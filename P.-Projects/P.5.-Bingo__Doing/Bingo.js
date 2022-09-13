@@ -1,9 +1,7 @@
 //new Bingo();
 
-//Pendientes: 
-//Crear guestCard de forma random
-//Preguntar por partida nueva al ganar
-//Sistema de puntaje y ranking
+//Revisar: 
+//Al crear la guestCard de forma random necesito la variable card=[] para evitar los duplicados en la guessCard=[]
 
 //Notas:
 //Rango de Numeros de 1-30 para facilitar las pruebas
@@ -11,7 +9,7 @@
 class Bingo {
     rankingPlayers = [];
     card = [];
-    maxCarNumbers = 15;
+    maxCardNumbers = 15;
     range = "1-30";
     minNumber = 1;
     maxNumber = 30;
@@ -55,11 +53,11 @@ class Bingo {
     getRandomCardNumber() {
         const randomCardNumber = Math.floor(Math.random() * this.maxNumber);
 
-
         if (this.card.includes(randomCardNumber)) {
             return this.getRandomCardNumber();
         };
 
+        //Aqui...
         this.card.push(randomCardNumber);
         return randomCardNumber;
     }
@@ -154,8 +152,9 @@ class Bingo {
     }
 
     generateGuessCard() {
-        for (let i = 0; i < this.maxCarNumbers; i++) {
-            this.guessCard.push({ number: this.card[i], isGuessed: false });
+        for (let i = 0; i < this.maxCardNumbers; i++) {
+            //Aqui...
+            this.guessCard.push({ number: this.getRandomCardNumber(), isGuessed: false });
         }
     }
 
@@ -227,7 +226,7 @@ class Bingo {
         this.extraGame = true;
     }
 
-    generateRaning() {
+    generateRanking() {
         this.rankingPlayers.push({ name: this.playerName, points: this.guessPoints });
 
     }
@@ -283,7 +282,7 @@ class Bingo {
                 console.log(` Congratulations! Mr/Mrs  ${this.playerName} You Won in ${this.rounds} rounds. You get: ${this.guessPoints}`);
 
                 this.showGuestCard();
-                this.generateRaning();
+                this.generateRanking();
                 this.newGame();
 
             } while (!this.extraGame && this.isPlaying)
