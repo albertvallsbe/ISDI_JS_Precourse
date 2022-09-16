@@ -90,7 +90,8 @@ const addEventListeners = () => {
     const letterButtons = document.querySelectorAll(".hex");
     letterButtons.forEach((button) => {
         button.addEventListener("click", (event) => {
-            document.querySelector(".text-input").innerText += event.target.innerText;
+            document.querySelector(".text-input").innerText += 
+             event.target.innerText;
         });
     });
 };
