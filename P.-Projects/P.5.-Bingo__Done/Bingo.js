@@ -1,5 +1,6 @@
 //new Bingo();
 
+//Extra, jugar contra la maquina...
 //Revisar: 
 //Al crear la guestCard de forma random necesito la variable card=[] para evitar los duplicados en la guessCard=[]
 
@@ -30,6 +31,7 @@ class Bingo {
     alertLineThree = true;
     isPlaying = true;
     extraGame = true;
+    lineHasWon = false;
 
     constructor() {
         console.clear();
@@ -40,7 +42,7 @@ class Bingo {
     }
 
     getRandomNumber() {
-        const randomNumber = Math.floor(Math.random() * this.maxNumber);
+        const randomNumber = (Math.floor(Math.random() * this.maxNumber) + 1);
 
 
         if (this.usedNumbers.includes(randomNumber)) {
@@ -52,7 +54,7 @@ class Bingo {
     }
 
     getRandomCardNumber() {
-        const randomCardNumber = Math.floor(Math.random() * this.maxNumber);
+        const randomCardNumber = (Math.floor(Math.random() * this.maxNumber) + 1);
 
         if (this.card.includes(randomCardNumber)) {
             return this.getRandomCardNumber();
@@ -106,12 +108,16 @@ class Bingo {
     }
 
     checkIfLineOneWin() {
+        if (this.lineHasWon) {
+            return;
+        }
         for (let i = 0; i <= 4; i++) {
             if (this.guessCard[i].isGuessed === false) {
                 return;
             }
         }
         this.wonLineOne = true;
+        this.lineHasWon = true;
         this.getPointsForLine();
         if (this.wonLineOne && this.alertLineOne) {
             alert(` Congratulations! You Won Line One in ${this.rounds} rounds`);
@@ -122,6 +128,9 @@ class Bingo {
     }
 
     checkIfLineTwoWin() {
+        if (this.lineHasWon) {
+            return;
+        }
         for (let i = 5; i <= 9; i++) {
             if (this.guessCard[i].isGuessed === false) {
                 return;
@@ -129,6 +138,7 @@ class Bingo {
         }
 
         this.wonLineTwo = true;
+        this.lineHasWon = true;
         this.getPointsForLine();
         if (this.wonLineTwo && this.alertLineTwo) {
             alert(` Congratulations! You Won Line Two in ${this.rounds} rounds`);
@@ -138,12 +148,16 @@ class Bingo {
     }
 
     checkIfLineThreeWin() {
+        if (this.lineHasWon) {
+            return;
+        }
         for (let i = 10; i <= 14; i++) {
             if (this.guessCard[i].isGuessed === false) {
                 return;
             }
         }
         this.wonLineThree = true;
+        this.lineHasWon = true;
         this.getPointsForLine();
         if (this.wonLineThree && this.alertLineThree) {
             alert(` Congratulations! You Won Line Three in ${this.rounds} rounds`);
@@ -225,6 +239,7 @@ class Bingo {
         this.alertLineThree = true;
         this.isPlaying = true;
         this.extraGame = true;
+        this.lineHasWon = false;
     }
 
     generateRanking() {
