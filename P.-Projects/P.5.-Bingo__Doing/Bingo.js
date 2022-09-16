@@ -32,6 +32,7 @@ class Bingo {
     extraGame = true;
 
     constructor() {
+        console.clear();
         this.askForName();
         this.printWelcome();
         this.generateGuessCard();
