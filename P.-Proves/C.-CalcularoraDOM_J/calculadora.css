@@ -24,10 +24,12 @@
         left: 150px;
         width: 250px;
         height: 500px;
-        background: rgb(0, 0, 0);
+        background: white;
+        /*Fons negre*/
         outline: 5px solid #a7bfca;
         border-radius: 30px;
         overflow: hidden;
+        border: 3px solid red
     }
     
     .pantalla {
@@ -35,7 +37,8 @@
         top: 110px;
         width: 100%;
         font-size: 70px;
-        background: black;
+        background: white;
+        /*Fons negre*/
         color: aliceblue;
         text-align: right;
         outline: none;
