@@ -1,0 +1,78 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
+
+body {
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  font-size: 3rem;
+}
+
+.title__secondary {
+  color: #4dc7da;
+}
+
+.container {
+  text-align: center;
+}
+
+.center {
+  width: 612px;
+  margin: 30px 0;
+}
+
+.hex {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.3rem;
+  font-weight: 500;
+  width: 90px;
+  aspect-ratio: 1;
+  background-color: #63bcca;
+  clip-path: polygon(50% 0%, 95% 25%, 95% 75%, 50% 100%, 5% 75%, 5% 25%);
+  cursor: pointer;
+  margin: 0 -4px;
+}
+
+.hex:hover,
+.hex:focus {
+  background-color: #3daabb;
+}
+
+.required-letter {
+  background-color: #ec4a49;
+  color: white;
+}
+
+.required-letter:hover,
+.required-letter:focus {
+  background-color: #d84141;
+}
+
+.text-input {
+    border: none;
+    outline: none;
+    font-size: 2rem;
+    text-transform: lowercase;
+}
+
+button{
+    margin: 5px;
+    padding: 10px 20px;
+    border-color: white;
+    border: 2px solid rgb(224, 224, 224);
+    border-radius: 10px;
+    color: black;
+    font-size: 0.8rem;
+    cursor: pointer;
+
+}
+
+button:hover,
+button:focus {
+    background-color: rgb(224, 224, 224);
+}
