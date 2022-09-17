@@ -1,39 +1,92 @@
-            body {
-                font-family: sans-serif;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            input {
-                /*text-align: end;
-         align-items: left;*/
-            }
-            
-            .calculator {
-                position: relative;
-                width: 250px;
-                height: 500px;
-                background-color: black;
-                outline: 2px solid darkred;
-                border: 0.5px solid silver;
-                border-radius: 30px;
-                align-items: center;
-            }
-            
-            .screen {
-                position: absolute;
-                top: 25px;
-                margin: 20px;
-                padding: 10px;
-                width: 75%;
-                background-color: black;
-                font-size: 2.5rem;
-                text-align: right;
-                border: none;
-                color: white;
-            }
-            
-            .key {
-                position: absolute
-            }
+:root {
+    --black: #000;
+    --lightgray: #f2f2f2;
+    --bordergray: #c6c6c6;
+    --darkgray: #5f6368;
+    --white: #ffffff;
+    --negre: var(--black);
+    --grisclar: var(--lightgray);
+    --grisvora: var(--bordergray);
+    --grisfosc: var(--darkgray);
+    --blanc: var(--white);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.calculator {
+    position: relative;
+    width: 250px;
+    height: 430px;
+    background-color: black;
+    margin-top: 15px;
+    outline: 2px solid darkred;
+    border: 0.5px solid silver;
+    border-radius: 30px;
+    align-items: center;
+}
+
+.screen {
+    position: absolute;
+    top: 25px;
+    margin: 20px;
+    padding: 10px;
+    width: 75%;
+    background-color: black;
+    font-size: 2.5rem;
+    text-align: right;
+    border: none;
+    color: white;
+}
+
+.second-floor {
+    position: absolute;
+    top: 150px;
+    left: 15px;
+}
+
+.key {
+    display: inline-flex;
+    width: 45px;
+    height: 45px;
+    margin: 2.5px;
+    padding: 2.5px;
+    border: none;
+    border-radius: 25px;
+    color: white;
+    background: black;
+    outline: 0.01px dotted darkslateblue;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.key:hover,
+.key:focus {
+    background-color: #222;
+}
+
+.num0 {
+    width: 100px;
+}
+
+.division {
+    margin-left: 112.5px;
+}
+
+.operation {
+    background-color: rgb(60, 20, 80);
+}
+
+.operation:hover,
+.operation:focus {
+    background-color: rgb(120, 20, 160);
+}
