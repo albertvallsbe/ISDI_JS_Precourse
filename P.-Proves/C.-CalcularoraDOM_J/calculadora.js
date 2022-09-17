@@ -1,15 +1,3 @@
-function Accion(x){
-    document.getElementById('resultado').innerHTML +=x;
-}
-
-function limpiarPantalla(){
-    document.getElementById('resultado').innerHTML = "";
-}
-function calculateResultado(){
-    let resultado = eval(document.getElementById('resultado').innerHTML);
-    document.getElementById('resultado').innerHTML = resultado;
-}
-
 let cero = document.getElementById('cero');
 let uno = document.getElementById('uno');
 let dos = document.getElementById('dos');
@@ -31,61 +19,76 @@ let inverso = document.getElementById('inverso');
 let igual = document.getElementById('igual');
 let borrar = document.getElementById('borrar');
 
-coma.addEventListener("click", function(){
+function Accion(x) {
+    document.getElementById('resultado').innerHTML += x;
+}
+
+function limpiarPantalla() {
+    document.getElementById('resultado').innerHTML = "";
+}
+
+function calculateResultado() {
+    let resultado = eval(document.getElementById('resultado').innerHTML);
+    document.getElementById('resultado').innerHTML = resultado;
+}
+
+
+
+coma.addEventListener("click", function() {
     Accion(".");
 })
-cero.addEventListener("click", function(){
+cero.addEventListener("click", function() {
     Accion(0);
 })
-uno.addEventListener("click", function(){
+uno.addEventListener("click", function() {
     Accion(1);
 })
-dos.addEventListener("click", function(){
+dos.addEventListener("click", function() {
     Accion(2);
 })
-tres.addEventListener("click", function(){
+tres.addEventListener("click", function() {
     Accion(3);
 })
-cuatro.addEventListener("click", function(){
+cuatro.addEventListener("click", function() {
     Accion(4);
 })
-cinco.addEventListener("click", function(){
+cinco.addEventListener("click", function() {
     Accion(5);
 })
-seis.addEventListener("click", function(){
+seis.addEventListener("click", function() {
     Accion(6);
 })
-siete.addEventListener("click", function(){
+siete.addEventListener("click", function() {
     Accion(7);
 })
-ocho.addEventListener("click", function(){
+ocho.addEventListener("click", function() {
     Accion(8);
 })
-nueve.addEventListener("click", function(){
+nueve.addEventListener("click", function() {
     Accion(9);
 })
 
-suma.addEventListener("click", function(){
+suma.addEventListener("click", function() {
     Accion("+");
 })
-resta.addEventListener("click", function(){
+resta.addEventListener("click", function() {
     Accion("-");
 })
-multiplicacion.addEventListener("click", function(){
+multiplicacion.addEventListener("click", function() {
     Accion("*");
 })
-division.addEventListener("click", function(){
+division.addEventListener("click", function() {
     Accion("/");
 })
-porcentaje.addEventListener("click", function(){
+porcentaje.addEventListener("click", function() {
     Accion("%");
 })
-inverso.addEventListener("click", function(){
+inverso.addEventListener("click", function() {
     Accion("+/-");
 })
-igual.addEventListener("click", function(){
+igual.addEventListener("click", function() {
     calculateResultado();
 })
-borrar.addEventListener("click", function(){
+borrar.addEventListener("click", function() {
     limpiarPantalla();
 })
