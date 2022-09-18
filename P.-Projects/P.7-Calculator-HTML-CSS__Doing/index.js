@@ -1,3 +1,5 @@
+//cambiar getElemetById per querySelector a totes les funcions
+//centrar el text als button...
 let zero = document.getElementById('zero');
 let one = document.getElementById('one');
 let two = document.getElementById('two');
