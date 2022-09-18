@@ -12,23 +12,24 @@ let point = document.getElementById('point');
 
 let addition = document.getElementById('addition');
 let substraction = document.getElementById('substraction');
-let multiplication = document.getElementById('multiplication');
+let multiplication = document.querySelector('.multiplication');
 let division = document.getElementById('division');
 
 let result = document.getElementById('result');
 let deleter = document.getElementById('deleter');
 
 function Accion(x) {
-    document.getElementById('screen').innerHTML += x;
+    document.querySelector('.screen').innerHTML += x;
+    // document.getElementById('.screen').innerHTML += x;
 }
 
 function limpiarPantalla() {
-    document.getElementById('screen').innerHTML = "";
+    document.querySelector('.screen').innerHTML = "";
 }
 
 function calculateResultado() {
-    let resultado = eval(document.getElementById('screen').innerHTML);
-    document.getElementById('screen').innerHTML = resultado;
+    let resultado = eval(document.querySelector('.screen').innerHTML);
+    document.querySelector('.screen').innerHTML = resultado;
 }
 
 
