@@ -81,19 +81,21 @@ const cleanWord = () => {
 };
 
 const addEventListeners = () => {
+    const letterButtons = document.querySelectorAll(".hex");
+    letterButtons.forEach((button) => {
+        button.addEventListener("click", (event) => {
+            document.querySelector(".text-input").innerText +=
+                event.target.innerText;
+        });
+    });
+
     const sendButton = document.querySelector(".send-button");
     sendButton.addEventListener("click", sendWord);
 
     const clearButton = document.querySelector(".clear-button");
     clearButton.addEventListener("click", cleanWord);
 
-    const letterButtons = document.querySelectorAll(".hex");
-    letterButtons.forEach((button) => {
-        button.addEventListener("click", (event) => {
-            document.querySelector(".text-input").innerText += 
-             event.target.innerText;
-        });
-    });
+
 };
 
 const addWordElementToHtml = () => {
@@ -105,6 +107,6 @@ const addWordElementToHtml = () => {
 const game = () => {
     addEventListeners();
     console.log("HI! You're playing ISDI LOGIC 8-)");
-  };
+};
 
 game();

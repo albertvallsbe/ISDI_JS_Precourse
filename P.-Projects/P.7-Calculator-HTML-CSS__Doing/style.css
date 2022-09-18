@@ -41,7 +41,7 @@ body {
     margin: 20px;
     padding: 10px;
     width: 75%;
-    background-color: black;
+    background-color: blue;
     font-size: 2.5rem;
     text-align: right;
     border: none;
@@ -67,6 +67,7 @@ body {
     outline: 0.01px dotted darkslateblue;
     font-size: 20px;
     cursor: pointer;
+    text-align: center;
 }
 
 .key:hover,

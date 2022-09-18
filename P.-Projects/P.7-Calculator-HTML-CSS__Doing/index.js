@@ -14,8 +14,7 @@ let addition = document.getElementById('addition');
 let substraction = document.getElementById('substraction');
 let multiplication = document.getElementById('multiplication');
 let division = document.getElementById('division');
-//let porcentaje = document.getElementById('porcentaje');
-//let inverso = document.getElementById('inverso');
+
 let result = document.getElementById('result');
 let deleter = document.getElementById('deleter');
 
@@ -78,14 +77,9 @@ multiplication.addEventListener("click", function() {
     Accion("*");
 })
 division.addEventListener("click", function() {
-        Accion("/");
-    })
-    // porcentaje.addEventListener("click", function() {
-    //     Accion("%");
-    // })
-    // inverso.addEventListener("click", function() {
-    //     Accion("+/-");
-    // })
+    Accion("/");
+})
+
 result.addEventListener("click", function() {
     calculateResultado();
 })
