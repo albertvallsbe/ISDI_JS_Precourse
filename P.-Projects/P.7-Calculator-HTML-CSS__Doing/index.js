@@ -19,75 +19,68 @@ let division = document.querySelector('.division');
 let result = document.querySelector('.result');
 let deleter = document.querySelector('.deleter');
 
-function Accion(value) {
+function action(value) {
     if(!isNaN(value)){
         document.querySelector('.screen').innerHTML;
     }
     document.querySelector('.screen').innerHTML += value;
     // document.getElementById('.screen').innerHTML += x;
 }
-
-function limpiarPantalla() {
+function cleanScreen() {
     document.querySelector('.screen').innerHTML = "";
 }
-
 function calculateResult() {
     let result = eval(document.querySelector('.screen').innerHTML);
     document.querySelector('.screen').innerHTML = result;
 }
-
-
-
 point.addEventListener("click", function() {
-    Accion(".");
+    action(".");
 })
 zero.addEventListener("click", function() {
-    Accion(0);
+    action(0);
 })
 one.addEventListener("click", function() {
-    Accion(1);
+    action(1);
 })
 two.addEventListener("click", function() {
-    Accion(2);
+    action(2);
 })
 three.addEventListener("click", function() {
-    Accion(3);
+    action(3);
 })
 four.addEventListener("click", function() {
-    Accion(4);
+    action(4);
 })
 five.addEventListener("click", function() {
-    Accion(5);
+    action(5);
 })
 six.addEventListener("click", function() {
-    Accion(6);
+    action(6);
 })
 seven.addEventListener("click", function() {
-    Accion(7);
+    action(7);
 })
 eight.addEventListener("click", function() {
-    Accion(8);
+    action(8);
 })
 nine.addEventListener("click", function() {
-    Accion(9);
+    action(9);
 })
-
 addition.addEventListener("click", function() {
-    Accion("+");
+    action("+");
 })
 substraction.addEventListener("click", function() {
-    Accion("-");
+    action("-");
 })
 multiplication.addEventListener("click", function() {
-    Accion("*");
+    action("*");
 })
 division.addEventListener("click", function() {
-    Accion("/");
+    action("/");
 })
-
 result.addEventListener("click", function() {
     calculateResult();
 })
 deleter.addEventListener("click", function() {
-    limpiarPantalla();
+    cleanScreen();
 })

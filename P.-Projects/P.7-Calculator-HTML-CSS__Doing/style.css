@@ -8,20 +8,7 @@
     --outline: #8b0022; 
     --border: #c0c0c0;
     --bordergray: #c6c6c6;
-   
-
-
-
-    --lightgray: #f2f2f2;
-    
-    --darkgray: #5f6368;
-    --white: #ffffff;
-    
-    --grisclar: var(--lightgray);
-    --grisvora: var(--bordergray);
-    --grisfosc: var(--darkgray);
-   
-}
+   }
 
 * {
     margin: 0;
@@ -97,10 +84,6 @@ body {
 .zero {
     width: 100px;
 }
-
-/* .division {
-     margin-left: 112.5px; 
-} */
 
 .operation {
     background-color: var(--opertadors);
