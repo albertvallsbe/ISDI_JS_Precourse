@@ -20,6 +20,9 @@ let result = document.querySelector('.result');
 let deleter = document.querySelector('.deleter');
 
 function Accion(value) {
+    if(!isNaN(value)){
+        document.querySelector('.screen').innerHTML;
+    }
     document.querySelector('.screen').innerHTML += value;
     // document.getElementById('.screen').innerHTML += x;
 }
@@ -28,9 +31,9 @@ function limpiarPantalla() {
     document.querySelector('.screen').innerHTML = "";
 }
 
-function calculateResultado() {
-    let resultado = eval(document.querySelector('.screen').innerHTML);
-    document.querySelector('.screen').innerHTML = resultado;
+function calculateResult() {
+    let result = eval(document.querySelector('.screen').innerHTML);
+    document.querySelector('.screen').innerHTML = result;
 }
 
 
@@ -83,7 +86,7 @@ division.addEventListener("click", function() {
 })
 
 result.addEventListener("click", function() {
-    calculateResultado();
+    calculateResult();
 })
 deleter.addEventListener("click", function() {
     limpiarPantalla();

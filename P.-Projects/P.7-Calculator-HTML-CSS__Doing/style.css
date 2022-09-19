@@ -1,7 +1,7 @@
 :root {
     --operadorsHover: #7814a0;
     --buttonKeyHover: #222222;
-    --contornBotons: #483d8b;
+    --outlineButtons: #483d8b;
     --opertadors: #3c1450;
     --blanc: #ffffff;
     --negre: #101010;  
@@ -41,10 +41,11 @@ body {
     height: 430px;
     background-color: var(--negre);
     margin-top: 15px;
-    outline: 2px solid var(--outline);
+    outline: 2px solid var(--outlineButtons);
     border: 0.5px solid var(--border);
     border-radius: 30px;
     align-items: center;
+    box-shadow: 30px 15px 25px #aaaaaa
 }
 
 .screen {
@@ -59,7 +60,8 @@ body {
     text-align: right;
     border: none;
     color: var(--blanc);
-    outline: 0.01px dotted var(--contornBotons);
+    outline: 0.01px dotted var(--outlineButtons);
+    overflow: hidden;
 }
 
 .second-floor {
@@ -78,7 +80,7 @@ body {
     border-radius: 25px;
     color: var(--blanc);
     background: var(--negre);
-    outline: 0.01px dotted var(--contornBotons);
+    outline: 0.01px dotted var(--outlineButtons);
     font-size: 20px;
     cursor: pointer;
     /*text-align: center;*/
