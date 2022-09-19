@@ -1,14 +1,26 @@
 :root {
-    --black: #000;
-    --lightgray: #f2f2f2;
+    --operadorsHover: #7814a0;
+    --buttonKeyHover: #222222;
+    --contornBotons: #483d8b;
+    --opertadors: #3c1450;
+    --blanc: #ffffff;
+    --negre: #101010;  
+    --outline: #8b0022; 
+    --border: #c0c0c0;
     --bordergray: #c6c6c6;
+   
+
+
+
+    --lightgray: #f2f2f2;
+    
     --darkgray: #5f6368;
     --white: #ffffff;
-    --negre: var(--black);
+    
     --grisclar: var(--lightgray);
     --grisvora: var(--bordergray);
     --grisfosc: var(--darkgray);
-    --blanc: var(--white);
+   
 }
 
 * {
@@ -27,10 +39,10 @@ body {
     position: relative;
     width: 250px;
     height: 430px;
-    background-color: black;
+    background-color: var(--negre);
     margin-top: 15px;
-    outline: 2px solid darkred;
-    border: 0.5px solid silver;
+    outline: 2px solid var(--outline);
+    border: 0.5px solid var(--border);
     border-radius: 30px;
     align-items: center;
 }
@@ -41,11 +53,13 @@ body {
     margin: 20px;
     padding: 10px;
     width: 75%;
-    background-color: blue;
+    max-height: 65px;
+    background-color: var(--negre);
     font-size: 2.5rem;
     text-align: right;
     border: none;
-    color: white;
+    color: var(--blanc);
+    outline: 0.01px dotted var(--contornBotons);
 }
 
 .second-floor {
@@ -62,32 +76,50 @@ body {
     padding: 2.5px;
     border: none;
     border-radius: 25px;
-    color: white;
-    background: black;
-    outline: 0.01px dotted darkslateblue;
+    color: var(--blanc);
+    background: var(--negre);
+    outline: 0.01px dotted var(--contornBotons);
     font-size: 20px;
     cursor: pointer;
-    text-align: center;
+    /*text-align: center;*/
+    justify-content: center;
+
+
 }
 
 .key:hover,
 .key:focus {
-    background-color: #222;
+    background-color: var(--buttonKeyHover);
 }
 
-.num0 {
+.zero {
     width: 100px;
 }
 
-.division {
-    margin-left: 112.5px;
-}
+/* .division {
+     margin-left: 112.5px; 
+} */
 
 .operation {
-    background-color: rgb(60, 20, 80);
+    background-color: var(--opertadors);
 }
 
 .operation:hover,
 .operation:focus {
-    background-color: rgb(120, 20, 160);
+    background-color: var(--operadorsHover);
+}
+
+.brand {
+    width: 100px;
+    background-color: var(--border);
+    color: var(--negre);
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.brand:hover,
+.brand:focus {
+    background-color: var(--buttonKeyHover);
+    font-size: 1.2rem;
+    color: var(--blanc);
 }

@@ -1,17 +1,15 @@
-//cambiar getElemetById per querySelector a totes les funcions
-//centrar el text als button...
-//igualar els noms dels numeros
-let zero = document.getElementById('zero');
-let one = document.getElementById('one');
-let two = document.getElementById('two');
-let three = document.getElementById('three');
-let four = document.getElementById('four');
-let five = document.getElementById('num5');
-let six = document.getElementById('six');
-let seven = document.getElementById('seven');
-let eight = document.getElementById('eight');
-let nine = document.getElementById('nine');
-let point = document.getElementById('point');
+
+let zero = document.querySelector('.zero');
+let one = document.querySelector('.one');
+let two = document.querySelector('.two');
+let three = document.querySelector('.three');
+let four = document.querySelector('.four');
+let five = document.querySelector('.five');
+let six = document.querySelector('.six');
+let seven = document.querySelector('.seven');
+let eight = document.querySelector('.eight');
+let nine = document.querySelector('.nine');
+let point = document.querySelector('.point');
 
 let addition = document.querySelector('.addition');
 let substraction = document.querySelector('.substraction');
@@ -21,8 +19,8 @@ let division = document.querySelector('.division');
 let result = document.querySelector('.result');
 let deleter = document.querySelector('.deleter');
 
-function Accion(x) {
-    document.querySelector('.screen').innerHTML += x;
+function Accion(value) {
+    document.querySelector('.screen').innerHTML += value;
     // document.getElementById('.screen').innerHTML += x;
 }
 
