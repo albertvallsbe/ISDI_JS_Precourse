@@ -1,8 +1,12 @@
 :root {
-    --operadorsHover: #7814a0;
-    --buttonKeyHover: #222222;
+    /* --operadorsHover: #7814a0; */
+    --operadorsHover: #081621;
     --outlineButtons: #483d8b;
-    --opertadors: #3c1450;
+    --buttonKeyHover: #222222;
+    /* --outlineButtons: #483d8b; */
+    --outlineButtons: #174163;
+    /* --opertadors: #3c1450; */
+    --opertadors: #0E273C;
     --blanc: #ffffff;
     --negre: #101010;  
     --outline: #8b0022; 
