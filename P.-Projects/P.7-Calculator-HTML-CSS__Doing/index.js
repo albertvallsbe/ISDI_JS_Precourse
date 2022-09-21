@@ -1,4 +1,3 @@
-
 let zero = document.querySelector('.zero');
 let one = document.querySelector('.one');
 let two = document.querySelector('.two');
@@ -20,15 +19,16 @@ let result = document.querySelector('.result');
 let deleter = document.querySelector('.deleter');
 
 function action(value) {
-    if(!isNaN(value)){
+    if (!isNaN(value)) {
         document.querySelector('.screen').innerHTML;
     }
     document.querySelector('.screen').innerHTML += value;
-    // document.getElementById('.screen').innerHTML += x;
 }
+
 function cleanScreen() {
     document.querySelector('.screen').innerHTML = "";
 }
+
 function calculateResult() {
     let result = eval(document.querySelector('.screen').innerHTML);
     document.querySelector('.screen').innerHTML = result;

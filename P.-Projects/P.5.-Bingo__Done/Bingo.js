@@ -1,9 +1,5 @@
 //new Bingo();
 
-//Extra, jugar contra la maquina...
-//Revisar: 
-//Al crear la guestCard de forma random necesito la variable card=[] para evitar los duplicados en la guessCard=[]
-
 //Notas:
 //Rango de Numeros de 1-30 para facilitar las pruebas
 
@@ -85,7 +81,6 @@ class Bingo {
 
     newTurn() {
         const randomNumber = this.getRandomNumber();
-        //alert(`Your number is: ${randomNumber}`);
 
         this.guessCard.forEach(newNum => {
             if (newNum.number === randomNumber) {

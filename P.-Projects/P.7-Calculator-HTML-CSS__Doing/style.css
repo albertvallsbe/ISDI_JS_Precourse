@@ -1,17 +1,14 @@
 :root {
-    /* --operadorsHover: #7814a0; */
     --operadorsHover: #081621;
     --buttonKeyHover: #222222;
-    /* --outlineButtons: #483d8b; */
     --outlineButtons: #174163;
-    /* --opertadors: #3c1450; */
     --opertadors: #0E273C;
     --blanc: #ffffff;
-    --negre: #101010;  
-    --outline: #8b0022; 
+    --negre: #101010;
+    --outline: #8b0022;
     --border: #c0c0c0;
     --bordergray: #c6c6c6;
-   }
+}
 
 * {
     margin: 0;
@@ -75,8 +72,6 @@ body {
     cursor: pointer;
     /*text-align: center;*/
     justify-content: center;
-
-
 }
 
 .key:hover,
